@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Autenticação";
+}
+@model Funcionario
+    
+    <div class="row div-login">
+
+        <div class="col-4 offset-4">
+            <form class="form-signin" method="POST">
+                <h1>Faça seu login</h1>
+                <div class="form-group">
+                    <label for="inputLogin">Login:</label>
+                    <input type="text" id="inputLogin" class="form-control" placeholder="Entre com seu Login" required
+                           autofocus ><br>
+                </div>
+                <div class="form-group">
+                    <label for="inputSenha">Senha:</label>
+                    <input type="password" id="inputSenha" class="form-control" placeholder="Entre com sua Senha" required
+                           >
+                </div>
+
+                <input type="submit" class="btn btn-info" value="Login"
+                       asp-controller="Secure" asp-action="Autenticar">
+
+            </form>
+        </div>
+    </div>

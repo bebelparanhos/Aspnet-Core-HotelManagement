@@ -1,0 +1,37 @@
+@{
+    ViewData["Title"] = "Autenticação";
+}
+@model App.Web.ViewModels.Account.LoginViewModel
+
+
+    <div class="row div-login">
+
+        <div class="col-4 offset-4">
+            <form class="form-signin" method="POST">
+                <h1>Faça seu login</h1>
+                <hr />
+                <div class="text-danger" asp-validation-summary="All"></div>
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input class="form-control" asp-for="Email"><br>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input class="form-control" asp-for="Password">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label asp-for="RememberMe">
+                            <input asp-for="RememberMe">
+                            @Html.DisplayNameFor(x => x.RememberMe)
+                        </label>
+                    </div>
+                </div>
+
+                <input type="submit" class="btn btn-info" />
+
+            </form>
+        </div>
+    </div>

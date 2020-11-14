@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Detalhes da Acomodação";
+}
+
+@model Acomodacao
+
+<div class="row">
+    <div class="col-md-4"><label class="control-label" asp-for="Descricao"></label></div>
+    <div class="col-md-4">@Model.Descricao</div>
+</div>
+<div class="row">
+    <div class="col-md-4"><label class="control-label" asp-for="Capacidade"></label></div>
+    <div class="col-md-4">@Model.Capacidade</div>
+</div>
+<div class="row">
+    <div class="col-md-4"><label class="control-label" asp-for="Categoria.Name"></label></div>
+    <div class="col-md-4">@Model.Categoria.Name</div>
+</div>
+<div class="row">
+    <div class="col-md-4"><label class="control-label" asp-for="Detalhe.Tamanho"></label></div>
+    <div class="col-md-4">@Model.Detalhe.Tamanho</div>
+</div>
+<div class="row">
+    <div class="col-md-4"><label class="control-label" asp-for="Observacao"></label></div>
+    <div class="col-md-4">@Model.Observacao</div>
+</div>
+<br />
+<h6>Instalações</h6>
+<hr />
+<div class="row">
+    <div class="col-md-4"><label class="control-label" asp-for="Detalhe.ArCondicionado"></label></div>
+    <div class="col-md-4">@Model.Detalhe.ArCondicionado</div>
+</div>
+<div class="row">
+    <div class="col-md-4"><label class="control-label" asp-for="Detalhe.Ventilador"></label></div>
+    <div class="col-md-4">@Model.Detalhe.Ventilador</div>
+</div>
+<div class="row">
+    <div class="col-md-4"><label class="control-label" asp-for="Detalhe.Banheiro"></label></div>
+    <div class="col-md-4">@Model.Detalhe.Banheiro</div>
+</div>
+
+<div class="row">
+    <div class="col-md-4"><label class="control-label" asp-for="Detalhe.Cofre"></label></div>
+    <div class="col-md-4">@Model.Detalhe.Cofre</div>
+</div>
+<div class="row">
+    <div class="col-md-4"><label class="control-label" asp-for="Detalhe.RoupaDeCama"></label></div>
+    <div class="col-md-4">@Model.Detalhe.RoupaDeCama</div>
+</div>
+<div class="row">
+    <div class="col-md-4"><label class="control-label" asp-for="Detalhe.Armario"></label></div>
+    <div class="col-md-4">@Model.Detalhe.Armario</div>
+</div>
+
+<div class="row">
+    <div class="col-md-4"><label class="control-label" asp-for="Detalhe.WiFi"></label></div>
+    <div class="col-md-4">@Model.Detalhe.WiFi</div>
+</div>
+<div class="row">
+    <div class="col-md-4"><label class="control-label" asp-for="Detalhe.Tomada"></label></div>
+    <div class="col-md-4">@Model.Detalhe.Tomada</div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <a class="btn btn-sm btn-warning" asp-action="CadastroAcomodacao" asp-route-id="@Model.AcomodacaoId">Alterar</a>
+        <a class="btn btn-sm btn-danger" asp-action="RemoverAcomodacao" asp-route-id="@Model.AcomodacaoId">Remover</a>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+﻿
+
+@model Funcionario
+
+<div class="form-row">
+    <div class="col-sm-4">
+        <h1>Altera Usuário</h1>
+        <form class="needs-validation" method="POST">
+            @*@Html.HiddenFor(model => model.FuncionarioId)*@
+            <!--<form asp-action="AdicionaCadastro" method="post">-->
+            <div class="form-group">
+                
+                <label>Nome</label>
+                <input type="text" value="@Model.Nome" class="form-control" asp-for="@Model.Nome"><br>
+
+                <label>Data de Nascimento</label>
+                <input type="date" value="@Model.DataDeNascimento" class="form-control" asp-for="@Model.DataDeNascimento"><br>
+                <label>Sexo</label><br>
+                <input type="checkbox" name="Feminino" value="1"> Feminino<br>
+                <input type="checkbox" name="Masculino" value="2"> Masculino<br><br>
+                <label>Email</label>
+                <input type="email" value="@Model.Email" class="form-control" asp-for="@Model.Email"><br>
+
+            </div>
+            <input type="submit" name="btn" class="btn btn-info btn-sm" value="OK"
+                   @*asp-controller="Usuario" asp-action="UpdateUsuario" asp-route-id="@Model.FuncionarioId">*@
+        </form>
+    </div>
+</div>

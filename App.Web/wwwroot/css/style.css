@@ -1,0 +1,152 @@
+html{
+    width:100%;
+    height:100%;
+}
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    height: 100%;
+    font-size: 12px;
+    background-color:#F8F8FF;
+    /*background: linear-gradient(#F7881F, #FEFEFE);*/
+}
+
+h1{
+    font-size:16px;
+    font-weight:bold;
+}
+
+main{
+    /*position:relative;
+    display:inline;*/
+    padding-top:20px;
+}
+main div {
+    /*margin-left: 200px;
+    padding-left: 20px;*/
+    /*padding-top:20px;
+    padding-left:200px;*/
+    /*position:absolute;*/
+}
+
+.nav-navbrand{
+    background-color: #DCAE1D;
+}
+.div-menu-superior {
+    left: 0;
+    position: page;
+    right: 0;
+    top: 0;
+    z-index: 1033;
+    margin-left: 200px;
+    /*background-color:#F5F5F5;*/
+    overflow: hidden;
+    background-color: #DCAE1D;
+    border-bottom: 1px outset white;
+}
+
+.div-menu-superior a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.nav-menu-superior {
+    position: center;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.div-menu-lateral {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    
+    overflow-x: hidden;
+    font-size:16px;
+    padding-top:20px;
+}
+    /*rgb(62,34,73)
+    background-color: rgb(130,147,164);
+rgb(130,143,100)
+rgb(34,99,180)
+
+        margin-top: 40px;
+    padding-left: 20px;
+
+*/
+.div-nav-menu-lateral{
+    padding-top:100px;
+}
+.div-menu-lateral a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #818181;
+    display: block;
+}
+.nav-menu-lateral{
+    position:relative;
+}
+.ul-menu-lateral {
+    list-style-type: none;
+   
+}
+
+.img-logo{
+    width:58px;
+}
+
+.div-img {
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: linear-gradient(#454d54,#343a40);
+    border-bottom:1px outset white;
+}
+
+.li-lista-lateral {
+    padding: 10px 5px;
+    margin-left: -40px;
+}
+
+.dropdown-container {
+    display: none;
+    /*background-color: #262626;*/
+    padding-left: 8px;
+}
+
+.dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #F8F8FF;
+    display: block;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: grab;
+    margin: 4px 2px;
+    border: none;
+    outline: none!important;
+}
+
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+.div-login{
+
+}
+
+.thead-lista-usuario {
+    background-color: #CAE4DB;
+    color:dimgrey;
+    font-size:14px;
+}

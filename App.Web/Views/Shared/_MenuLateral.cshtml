@@ -1,0 +1,75 @@
+@inject SignInManager<Usuario> SignInManager
+@inject UserManager<Usuario> UserManager
+
+<div class="div-menu-lateral bg-dark text-white ">
+    <div class="div-img">
+        <img src="~/img/light-bulb-with-monuments-drawn-around.jpg" class="img-logo" />
+    </div>
+    
+    <div class="div-nav-menu-lateral">
+        <a asp-controller="Account" asp-action="Login" class="btn text-white float-left">
+            <i class="fa fa-fw fa-home"></i> Home
+        </a>
+
+        <button class="dropdown-btn">
+            <i class="fa fa-fw fa-user"></i> Usuários<i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a asp-controller="Account" asp-action="Register" class="text-white">Cadastrar Usuario</a>
+            <a asp-controller="Funcionario" asp-action="ListarFuncionario" class="text-white">Listar Usuarios</a>
+        </div>
+
+        <button class="dropdown-btn">
+            <i class="fas fa-bed"></i> Acomodações<i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a asp-controller="Acomodacao" asp-action="CadastroAcomodacao" class="text-white">Cadastrar Acomodações</a>
+            <a asp-controller="Acomodacao" asp-action="ListarAcomodacao" class="text-white">Listar Acomodações</a>
+        </div>
+
+        <button class="dropdown-btn">
+            <i class="fas fa-book"></i> Reservas<i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a asp-controller="Acomodacao" asp-action="CadastroAcomodacao" class="text-white">Reservar Acomodações</a>
+            <a asp-controller="Acomodacao" asp-action="ListarAcomodacao" class="text-white">Listar Reservas</a>
+        </div>
+        <button class="dropdown-btn">
+            <i class="far fa-user-circle"></i> Hospedes<i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a asp-controller="Acomodacao" asp-action="CadastroAcomodacao" class="text-white">Cadastrar Hospede</a>
+            <a asp-controller="Acomodacao" asp-action="ListarAcomodacao" class="text-white">Listar Hóspedes</a>
+        </div>
+        <a asp-controller="Home" asp-action="Index" class="btn text-white float-left">
+            <i class="far fa-calendar"></i> Calendário
+        </a>
+        <a asp-controller="Home" asp-action="Index" class="btn text-white float-left">
+            <i class="fas fa-wallet"></i> Financeiro
+        </a>
+        <a asp-controller="Home" asp-action="Index" class="btn text-white float-left">
+            <i class="fas fa-chart-pie"></i> Dashboard
+        </a>
+    </div>
+</div>
+<script type="text/javascript">
+    //* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+
+    for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        });
+    }
+</script>
+<!--class="navbar navbar-expand-sm bg-secondary"
+    
+    
+    -->

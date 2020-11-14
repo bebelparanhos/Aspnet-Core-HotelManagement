@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Lista de Funcionários";
+}
+
+@model IEnumerable<App.Web.Models.Entities.Funcionario>
+
+    <table class="table table-striped">
+        <thead class="thead-lista-usuario">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        <a class="btn btn-info btn-sm" role="button" asp-action="DetalharFuncionario" asp-route-id="@item.FuncionarioId">Detalhes</a>
+                        <a class="btn btn-warning btn-sm" role="button" asp-action="EditarFuncionario" asp-route-id="@item.FuncionarioId">Editar</a>
+                        <a class="btn btn-danger btn-sm" role="button" asp-action="RemoverFuncionario" asp-route-id="@item.FuncionarioId">Remover</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+

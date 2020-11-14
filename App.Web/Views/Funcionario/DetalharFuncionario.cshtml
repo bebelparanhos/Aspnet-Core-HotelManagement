@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "Detalhes de Usuário";
+}
+
+@model Funcionario
+
+
+<h4>Detalhes de @Model.Nome</h4>
+<br />
+<h6>Dados Pessoais</h6>
+<hr />
+<div class="row">
+    <div class="col-md-4"><label asp-for="Nome" class="control-label"></label></div>
+    <div class="col-md-4">@Model.Nome</div>
+</div>
+<div class="row">
+    <div class="col-md-4"><label asp-for="Email" class="control-label"></label></div>
+    <div class="col-md-4">@Model.Email</div>
+</div>
+<div class="row">
+    <div class="col-md-4"><label asp-for="DataDeNascimento" class="control-label"></label></div>
+    <div class="col-md-4">@Model.DataDeNascimento</div>
+</div>
+<div class="row">
+    <div class="col-md-4"><label asp-for="CPF" class="control-label"></label></div>
+    <div class="col-md-4">@Model.CPF</div>
+</div>
+<div class="row">
+    <div class="col-md-4"><label asp-for="Sexo" class="control-label"></label></div>
+    <div class="col-md-4">@Model.Sexo</div>
+</div>
+<div class="row">
+    <div class="col-md-4"><label  class="control-label"></label></div>
+    <div class="col-md-4"></div>
+</div>
+<br />
+<h6>Endereço</h6>
+<hr />
+<div class="row">
+    <div class="col-md-4"><label asp-for="Endereco.Logradouro" class="control-label"></label></div>
+    <div class="col-md-4">@Model.Endereco.Logradouro</div>
+</div>
+<div class="row">
+    <div class="col-md-4"><label asp-for="Endereco.Numero" class="control-label"></label></div>
+    <div class="col-md-4">@Model.Endereco.Numero</div>
+</div>
+<div class="row">
+    <div class="col-md-4"><label asp-for="Endereco.Complemento" class="control-label"></label></div>
+    <div class="col-md-4">@Model.Endereco.Complemento</div>
+</div>
+<div class="row">
+    <div class="col-md-4"><label asp-for="Endereco.Bairro" class="control-label"></label></div>
+    <div class="col-md-4">@Model.Endereco.Bairro</div>
+</div>
+<div class="row">
+    <div class="col-md-4"><label asp-for="Endereco.Cidade" class="control-label"></label></div>
+    <div class="col-md-4">@Model.Endereco.Cidade</div>
+</div>
+<div class="row">
+    <div class="col-md-4"><label asp-for="Endereco.Estado" class="control-label"></label></div>
+    <div class="col-md-4">@Model.Endereco.Estado</div>
+</div>
+<div class="row">
+    <div class="col-md-4"><label asp-for="Endereco.Pais" class="control-label"></label></div>
+    <div class="col-md-4">@Model.Endereco.Pais</div>
+</div>
+
+<div class="row">
+    <div class="col-md-4"><label asp-for="Endereco.Telefone" class="control-label"></label></div>
+    <div class="col-md-4">@Model.Endereco.Telefone</div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <a class="btn btn-warning btn-sm" role="button" asp-action="EditarFuncionario" asp-route-id="@Model.FuncionarioId">Editar</a>
+        <a class="btn btn-danger btn-sm" role="button" asp-action="RemoverFuncionario" asp-route-id="@Model.FuncionarioId">Remover</a>
+    </div>
+</div>

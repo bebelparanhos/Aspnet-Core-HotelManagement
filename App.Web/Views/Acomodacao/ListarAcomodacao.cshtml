@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Lista de Acomodações";
+}
+
+@model IEnumerable<App.Web.Models.Entities.Acomodacao>
+
+<table class="table table-striped">
+    <thead class="thead-lista-usuario">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AcomodacaoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Capacidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observacao)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcomodacaoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observacao)
+            </td>
+            <td>
+                <a class="btn btn-outline-info btn-sm" role="button" asp-action="DetalharAcomodacao" asp-route-id="@item.AcomodacaoId">Detalhar</a>
+                <a class="btn btn-outline-warning btn-sm" role="button" asp-action="MostraAlteraCadastro" asp-route-id="@item.AcomodacaoId">Alterar</a>
+                <a class="btn btn-outline-danger btn-sm" role="button" asp-action="RemoverAcomodacao" asp-route-id="@item.AcomodacaoId">Remover</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
