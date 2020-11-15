@@ -18,6 +18,7 @@ namespace App.Web.Repositories
         public DbSet<Acomodacao> Acomodacoes { get; set; }
         public DbSet<Cargo> Cargos { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
+        public DbSet<Funcionario> Funcionarios { get; set; }
         public ApplicationContext(DbContextOptions option):base(option)
         {
             

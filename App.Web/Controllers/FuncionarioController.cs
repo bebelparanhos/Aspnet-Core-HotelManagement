@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using App.Web.Models.Entities;
 using App.Web.Models.Interfaces;
+using System;
+using System.Threading.Tasks;
 
 namespace App.Web.Controllers
 {
@@ -25,9 +27,10 @@ namespace App.Web.Controllers
         //    return RedirectToAction("Login", "Secure");
         //}     
 
-        public IActionResult ListarFuncionario()
+        public async Task<IActionResult> ListarFuncionario()
         {
-            return View(_funcionario.ListaFuncionario());
+            var dados = await _funcionario.ListaFuncionario();
+            return View(dados);
         }
 
         public IActionResult RemoverFuncionario(int id)
@@ -36,12 +39,12 @@ namespace App.Web.Controllers
             return RedirectToAction("ListarFuncionario");
         }
 
-        public IActionResult DetalharFuncionario(int id)
+        public IActionResult DetalharFuncionario(Guid id)
         {
             return View(_funcionario.GetFuncionario(id));
         }
 
-        public IActionResult EditarFuncionario(int id)
+        public IActionResult EditarFuncionario(Guid id)
         {
             var usuario = _funcionario.GetFuncionario(id);
             return RedirectToAction("CadastrarFuncionario", "Manager", usuario);

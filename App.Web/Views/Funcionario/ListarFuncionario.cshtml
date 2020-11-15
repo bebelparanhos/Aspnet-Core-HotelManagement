@@ -28,9 +28,9 @@
                         @Html.DisplayFor(modelItem => item.Email)
                     </td>
                     <td>
-                        <a class="btn btn-info btn-sm" role="button" asp-action="DetalharFuncionario" asp-route-id="@item.FuncionarioId">Detalhes</a>
-                        <a class="btn btn-warning btn-sm" role="button" asp-action="EditarFuncionario" asp-route-id="@item.FuncionarioId">Editar</a>
-                        <a class="btn btn-danger btn-sm" role="button" asp-action="RemoverFuncionario" asp-route-id="@item.FuncionarioId">Remover</a>
+                        <a class="btn btn-info btn-sm" role="button" asp-controller="Funcionario" asp-action="DetalharFuncionario" asp-route-id="@item.UsuarioId">Detalhes</a>
+                        <a class="btn btn-warning btn-sm" role="button" asp-controller="Manager" asp-action="CadastrarFuncionario" asp-route-id="@item.UsuarioId">Editar</a>
+                        <a class="btn btn-danger btn-sm" role="button" asp-controller="Funcionario" asp-action="RemoverFuncionario" asp-route-id="@item.UsuarioId">Remover</a>
                     </td>
                 </tr>
             }

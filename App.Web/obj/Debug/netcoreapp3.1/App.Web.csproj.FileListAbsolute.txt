@@ -340,3 +340,4 @@ F:\Learning\Portifolio\HotelManagement\App.Web\obj\Debug\netcoreapp3.1\staticweb
 F:\Learning\Portifolio\HotelManagement\App.Web\obj\Debug\netcoreapp3.1\App.Web.dll
 F:\Learning\Portifolio\HotelManagement\App.Web\obj\Debug\netcoreapp3.1\App.Web.pdb
 F:\Learning\Portifolio\HotelManagement\App.Web\obj\Debug\netcoreapp3.1\App.Web.genruntimeconfig.cache
+F:\Learning\Portifolio\HotelManagement\App.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\CadastrarFuncionario\default.cshtml.g.cs

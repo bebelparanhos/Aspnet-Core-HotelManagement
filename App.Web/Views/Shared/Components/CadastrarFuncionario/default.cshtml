@@ -1,7 +1,4 @@
-﻿
-
-@model App.Web.ViewModels.Manager.FuncionarioViewModel
-
+﻿@model App.Web.Models.Entities.Funcionario
 
 <div class="form-row">
     <div class="col-sm-6">
@@ -11,7 +8,6 @@
             <div class="form-group">
                 <label asp-for="Email"></label>
                 <input type="text" class="form-control" asp-for="Email" placeholder="Email" disabled>
-                <input type="hidden" asp-for="Email">
             </div>
             <div class="form-group">
                 <label asp-for="Nome"></label>
@@ -43,10 +39,7 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-sm-5">
-                    <label asp-for="Cargos"></label>
-                    <select asp-for="CargoId" asp-items="Model.Cargos" class="form-control"><option value="">Selecione um Cargo</option></select>
-                </div>
+                
                 <div class="form-group col-sm-5">
                     <label asp-for="Nacionalidade"></label>
                     <input class="form-control" type="text" asp-for="Nacionalidade">
@@ -55,40 +48,40 @@
             <h1>Endereço</h1>
             <hr />
             <div class="form-group">
-                <label asp-for="Logradouro"></label>
-                <input type="text" class="form-control" asp-for="Logradouro" placeholder="Nome da Rua">
+                <label asp-for="Endereco.Logradouro"></label>
+                <input type="text" class="form-control" asp-for="Endereco.Logradouro" placeholder="Nome da Rua">
             </div>
             <div class="form-row">
                 <div class="form-group col-md-2">
-                    <label asp-for="Numero"></label>
-                    <input type="number" class="form-control" asp-for="Numero" placeholder="Número">
+                    <label asp-for="Endereco.Numero"></label>
+                    <input type="number" class="form-control" asp-for="Endereco.Numero" placeholder="Número">
                 </div>
                 <div class="form-group col-md-4">
-                    <label asp-for="Complemento"></label>
-                    <input type="text" class="form-control" asp-for="Complemento" placeholder="Apt, Fundos, etc">
+                    <label asp-for="Endereco.Complemento"></label>
+                    <input type="text" class="form-control" asp-for="Endereco.Complemento" placeholder="Apt, Fundos, etc">
                 </div>
                 <div class="form-group col-md-6">
-                    <label asp-for="Bairro"></label>
-                    <input type="text" class="form-control" asp-for="Bairro" placeholder="Bairro">
+                    <label asp-for="Endereco.Bairro"></label>
+                    <input type="text" class="form-control" asp-for="Endereco.Bairro" placeholder="Bairro">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label asp-for="Cidade"></label>
-                    <input type="text" class="form-control" asp-for="Cidade" placeholder="Cidade">
+                    <label asp-for="Endereco.Cidade"></label>
+                    <input type="text" class="form-control" asp-for="Endereco.Cidade" placeholder="Cidade">
                 </div>
                 <div class="form-group col-md-2">
-                    <label asp-for="Estado"></label>
-                    <input type="text" class="form-control" asp-for="Estado" placeholder="Estado">
+                    <label asp-for="Endereco.Estado"></label>
+                    <input type="text" class="form-control" asp-for="Endereco.Estado" placeholder="Estado">
                 </div>
                 <div class="form-group col-md-4">
-                    <label asp-for="Pais"></label>
-                    <input type="text" class="form-control" asp-for="Pais" placeholder="País">
+                    <label asp-for="Endereco.Pais"></label>
+                    <input type="text" class="form-control" asp-for="Endereco.Pais" placeholder="País">
                 </div>
             </div>
             <div class="form-group col-md-4">
-                <label asp-for="Telefone"></label>
-                <input type="tel" class="form-control" asp-for="Telefone" placeholder="(XX)XXXXXXXXX">
+                <label asp-for="Endereco.Telefone"></label>
+                <input type="tel" class="form-control" asp-for="Endereco.Telefone" placeholder="(XX)XXXXXXXXX">
             </div>
 
             <div class="form-row">

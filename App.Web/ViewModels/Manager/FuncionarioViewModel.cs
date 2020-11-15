@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace App.Web.ViewModels.Manager
 {
-    public class CadastrarFuncionarioViewModel
+    public class FuncionarioViewModel
     {
         [Required]
         [EmailAddress]

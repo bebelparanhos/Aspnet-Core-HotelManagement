@@ -151,60 +151,112 @@ namespace App.Web.Controllers.Secure
         public IActionResult CadastrarFuncionario(Usuario usuario, string returnUrl = null)
         {
 
-            CadastrarFuncionarioViewModel model = new CadastrarFuncionarioViewModel();
+            var model = new FuncionarioViewModel();
+
+            ViewData["ReturnUrl"] = returnUrl;
+
 
             var cargo = _context.Cargos.Select(c => new { c.CargoId, c.Descricao }).ToList();
             model.Cargos = new SelectList(cargo, "CargoId", "Descricao");
 
-            model.Email = _userManager.Users.Where(u => u.Email == usuario.Email).FirstOrDefault().ToString();
+            var funcionario = _funcionario.GetFuncionario(usuario.Id);
 
-            ViewData["ReturnUrl"] = returnUrl;
+            if (funcionario != null)
+            {
+                
+                model.Email = funcionario.Email;
+                model.Nome = funcionario.Nome;
+                model.DataDeNascimento = funcionario.DataDeNascimento;
+                model.Sexo = funcionario.Sexo;
+                model.CPF = funcionario.CPF;
+                model.CargoId = funcionario.CargoId;
+                
+                model.Nacionalidade = funcionario.Nacionalidade;
+                model.Logradouro = funcionario.Endereco.Logradouro;
+                model.Numero = funcionario.Endereco.Numero;
+                model.Complemento = funcionario.Endereco.Complemento;
+                model.Bairro = funcionario.Endereco.Bairro;
+                model.Cidade = funcionario.Endereco.Cidade;
+                model.Estado = funcionario.Endereco.Estado;
+                model.Pais = funcionario.Endereco.Pais;
+                model.Telefone = funcionario.Endereco.Telefone;
+            }
+            else
+            {
+
+                model.Email = _userManager.Users.Where(u => u.Email == usuario.Email).FirstOrDefault().ToString();
+            }
 
             return View(model);
         }
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> CadastrarFuncionario(CadastrarFuncionarioViewModel model, string returnUrl = null)
+        public async Task<IActionResult> CadastrarFuncionario(FuncionarioViewModel model, string returnUrl = null)
         {
 
             ViewData["ReturnUrl"] = returnUrl;
 
             if (ModelState.IsValid)
             {
-                var funcionario = new Funcionario
+                var user = await _userManager.FindByNameAsync(model.Email);
+                var funcionario = _funcionario.GetFuncionario(user.Id);
+
+                if(funcionario != null)
                 {
-                    Nome = model.Nome,
-                    Email = model.Email,
-                    DataDeNascimento = model.DataDeNascimento,
-                    Sexo = model.Sexo,
-                    CPF = model.CPF,
-                    CargoId = model.CargoId,
-                    Nacionalidade = model.Nacionalidade,
-                    Usuario = await _userManager.FindByNameAsync(model.Email),
-                    Endereco = new Endereco
+                    funcionario.Nome = model.Nome;
+                    funcionario.DataDeNascimento = model.DataDeNascimento;
+                    funcionario.Sexo = model.Sexo;
+                    funcionario.CPF = model.CPF;
+                    funcionario.CargoId = model.CargoId;
+                    funcionario.Nacionalidade = model.Nacionalidade;
+                    funcionario.Email = model.Email;
+                    funcionario.Endereco.Logradouro = model.Logradouro;
+                    funcionario.Endereco.Numero = model.Numero;
+                    funcionario.Endereco.Complemento = model.Complemento;
+                    funcionario.Endereco.Bairro = model.Bairro;
+                    funcionario.Endereco.Cidade = model.Cidade;
+                    funcionario.Endereco.Estado = model.Estado;
+                    funcionario.Endereco.Pais = model.Pais;
+                    funcionario.Endereco.Telefone = model.Telefone;
+                }
+                else
+                {
+                    funcionario = new Funcionario
                     {
-                        Logradouro = model.Logradouro,
-                        Numero = model.Numero,
-                        Complemento = model.Complemento,
-                        Bairro = model.Bairro,
-                        Cidade = model.Cidade,
-                        Estado = model.Estado,
-                        Pais = model.Pais,
-                        Telefone = model.Telefone
-                    }
-                };
+                        Nome = model.Nome,
+                        Email = model.Email,
+                        DataDeNascimento = model.DataDeNascimento,
+                        Sexo = model.Sexo,
+                        CPF = model.CPF,
+                        CargoId = model.CargoId,
+                        Nacionalidade = model.Nacionalidade,
+                        Usuario = user,
+                        Endereco = new Endereco
+                        {
+                            Logradouro = model.Logradouro,
+                            Numero = model.Numero,
+                            Complemento = model.Complemento,
+                            Bairro = model.Bairro,
+                            Cidade = model.Cidade,
+                            Estado = model.Estado,
+                            Pais = model.Pais,
+                            Telefone = model.Telefone
+                        }
+                    };
+                }
 
-
-                _funcionario.SalvarFuncionario(funcionario);
+                await _funcionario.SalvarFuncionario(funcionario);
 
                 StatusMessage = "Cadastro efetuado com sucesso";
 
-                //-return RedirectToAction("Index", "Home");
-                return View(_funcionario.ListaFuncionario());
+                //return RedirectToAction("Index", "Home");
+                return RedirectToAction("ListarFuncionario", "Funcionario", await _funcionario.ListaFuncionario());
             }
             else
             {
+                ModelState.AddModelError(string.Empty, "Erro");
+
                 return View(model);
             }
 

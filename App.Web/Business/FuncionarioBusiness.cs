@@ -6,6 +6,8 @@ using App.Web.Models.Entities;
 using App.Web.Models.Interfaces;
 using App.Web.Security;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
+using System;
 
 namespace App.Web.Business
 {
@@ -22,7 +24,7 @@ namespace App.Web.Business
         //    string _senha = hash.CriptografaSenha(senha);
         //    return _senha;
         //}
-        public void SalvarFuncionario(Funcionario funcionario)
+        public async Task SalvarFuncionario(Funcionario funcionario)
         {
 
             if (funcionario.FuncionarioId > 0)
@@ -35,7 +37,7 @@ namespace App.Web.Business
                 //usuario.Senha = GeraSenha(usuario.Senha);
                 dbSet.Add(funcionario);
             }
-            contexto.SaveChanges();
+            await contexto.SaveChangesAsync();
         }
 
         //public bool AutenticaUsuario(Funcionario usuario)
@@ -58,9 +60,9 @@ namespace App.Web.Business
         //}
 
 
-        public Funcionario GetFuncionario(int id)
+        public Funcionario GetFuncionario(Guid id)
         {
-            return dbSet.Where(u => u.FuncionarioId == id).Include(e => e.Endereco).FirstOrDefault();
+            return dbSet.Where(f => f.UsuarioId == id).Include(e => e.Endereco).Include(u => u.Usuario).FirstOrDefault();
         }
 
         public void AlteraFuncionario(Funcionario usuario)
@@ -94,9 +96,9 @@ namespace App.Web.Business
             }
         }
 
-        public IList<Funcionario> ListaFuncionario()
+        public async Task<List<Funcionario>> ListaFuncionario()
         {
-            return dbSet.Where(i => i.Ativo == true).OrderBy(i => i.Nome).ToList();
+            return await dbSet.Where(i => i.Ativo == true).OrderBy(i => i.Nome).ToListAsync();
         }
 
     }
