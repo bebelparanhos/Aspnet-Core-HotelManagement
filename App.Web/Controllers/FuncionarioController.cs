@@ -3,9 +3,11 @@ using App.Web.Models.Entities;
 using App.Web.Models.Interfaces;
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace App.Web.Controllers
 {
+    [Authorize]
     public class FuncionarioController : Controller
      {
         private readonly IFuncionario _funcionario;
@@ -26,14 +28,14 @@ namespace App.Web.Controllers
         //   _funcionario.SalvaUsuario(usuario);
         //    return RedirectToAction("Login", "Secure");
         //}     
-
+        
         public async Task<IActionResult> ListarFuncionario()
         {
             var dados = await _funcionario.ListaFuncionario();
             return View(dados);
         }
 
-        public IActionResult RemoverFuncionario(int id)
+        public IActionResult RemoverFuncionario(Guid id)
         {
             _funcionario.RemoveFuncionario(id);
             return RedirectToAction("ListarFuncionario");

@@ -71,7 +71,8 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-        <a class="btn btn-warning btn-sm" role="button" asp-action="EditarFuncionario" asp-route-id="@Model.FuncionarioId">Editar</a>
-        <a class="btn btn-danger btn-sm" role="button" asp-action="RemoverFuncionario" asp-route-id="@Model.FuncionarioId">Remover</a>
+        <a class="btn btn-warning btn-sm" role="button" asp-controller="Manager" asp-action="CadastrarFuncionario" asp-route-id="@Model.UsuarioId" >Editar</a>
+        <a class="btn btn-danger btn-sm" role="button" asp-controller="Funcionario" asp-action="RemoverFuncionario" asp-route-id="@Model.UsuarioId">Remover</a>
+        
     </div>
 </div>

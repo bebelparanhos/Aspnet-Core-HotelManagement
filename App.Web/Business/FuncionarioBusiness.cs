@@ -62,36 +62,17 @@ namespace App.Web.Business
 
         public Funcionario GetFuncionario(Guid id)
         {
-            return dbSet.Where(f => f.UsuarioId == id).Include(e => e.Endereco).Include(u => u.Usuario).FirstOrDefault();
+            return dbSet.Where(f => f.UsuarioId == id && f.Ativo == true).Include(e => e.Endereco).Include(u => u.Usuario).FirstOrDefault();
         }
 
-        public void AlteraFuncionario(Funcionario usuario)
+        public void RemoveFuncionario(Guid id)
         {
-            var usuarioDb = dbSet.FirstOrDefault(u => u.FuncionarioId == usuario.FuncionarioId);
+            var funcionario = dbSet.Where(f => f.UsuarioId == id).FirstOrDefault();
 
-            if (usuarioDb.FuncionarioId > 0)
+            if (funcionario != null)
             {
-                usuarioDb.Nome = usuario.Nome;
-                usuarioDb.Email = usuario.Email;
-                usuarioDb.DataDeNascimento = usuario.DataDeNascimento;
-                usuarioDb.Sexo = usuario.Sexo;
-                usuarioDb.CPF = usuario.CPF;
-
-                dbSet.Update(usuarioDb);
-
-                contexto.SaveChanges();
-            }
-
-        }
-
-        public void RemoveFuncionario(int id)
-        {
-            var usuario = dbSet.Find(id);
-
-            if (usuario != null)
-            {
-                usuario.Ativo = false;
-                dbSet.Update(usuario);
+                funcionario.Ativo = false;
+                dbSet.Update(funcionario);
                 contexto.SaveChanges();
             }
         }

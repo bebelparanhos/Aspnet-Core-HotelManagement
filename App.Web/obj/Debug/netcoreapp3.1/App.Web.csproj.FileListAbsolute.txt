@@ -171,7 +171,6 @@ F:\Learning\Portifolio\Sistema\App.Web\obj\Debug\netcoreapp3.1\Razor\Views\Funci
 F:\Learning\Portifolio\Sistema\App.Web\obj\Debug\netcoreapp3.1\Razor\Views\Funcionario\EditarFuncionario.cshtml.g.cs
 F:\Learning\Portifolio\HotelManagement\App.Web\bin\Debug\netcoreapp3.1\appsettings.Development.json
 F:\Learning\Portifolio\HotelManagement\App.Web\bin\Debug\netcoreapp3.1\appsettings.json
-F:\Learning\Portifolio\HotelManagement\App.Web\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 F:\Learning\Portifolio\HotelManagement\App.Web\bin\Debug\netcoreapp3.1\App.Web.exe
 F:\Learning\Portifolio\HotelManagement\App.Web\bin\Debug\netcoreapp3.1\App.Web.deps.json
 F:\Learning\Portifolio\HotelManagement\App.Web\bin\Debug\netcoreapp3.1\App.Web.runtimeconfig.json
@@ -341,3 +340,4 @@ F:\Learning\Portifolio\HotelManagement\App.Web\obj\Debug\netcoreapp3.1\App.Web.d
 F:\Learning\Portifolio\HotelManagement\App.Web\obj\Debug\netcoreapp3.1\App.Web.pdb
 F:\Learning\Portifolio\HotelManagement\App.Web\obj\Debug\netcoreapp3.1\App.Web.genruntimeconfig.cache
 F:\Learning\Portifolio\HotelManagement\App.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\CadastrarFuncionario\default.cshtml.g.cs
+F:\Learning\Portifolio\HotelManagement\App.Web\obj\Debug\netcoreapp3.1\scopedcss\bundle\App.Web.styles.css

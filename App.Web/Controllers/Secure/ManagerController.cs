@@ -147,7 +147,6 @@ namespace App.Web.Controllers.Secure
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult CadastrarFuncionario(Usuario usuario, string returnUrl = null)
         {
 

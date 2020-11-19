@@ -11,8 +11,8 @@ namespace App.Web.Models.Interfaces{
         //bool AutenticaUsuario(Funcionario usuario);
         Task SalvarFuncionario(Funcionario funcionario);
         Task<List<Funcionario>> ListaFuncionario();
-        void AlteraFuncionario(Funcionario funcionario);
-        void RemoveFuncionario(int id);
+       
+        void RemoveFuncionario(Guid id);
 
         Funcionario GetFuncionario(Guid id);
         
